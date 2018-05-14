@@ -17,7 +17,7 @@
 
 #define SYNC_BYTE 0x47
 
-extern void segmentOffset(uint8_t *buffer, uint16_t length, int16_t offset);
+extern void segmentOffset(uint8_t *buffer, uint32_t length, int16_t offset);
 
 struct HiLoExt {
     uint8_t hi;
@@ -83,7 +83,7 @@ struct HiLoExt *addHiLoExt(struct HiLoExt *hiLo, int32_t value) {
     return hiLo;
 }
 
-void segmentOffset(uint8_t *buffer, uint16_t length, int16_t offset) {
+void segmentOffset(uint8_t *buffer, uint32_t length, int16_t offset) {
     struct HiLoExt pcr, pts, dts;
     uint8_t afc, ptsDtsIndicator, opcrOffset;
     int32_t pesStartCode, timeOffset, pos = 0;
